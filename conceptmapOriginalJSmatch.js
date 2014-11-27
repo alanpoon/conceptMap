@@ -47,7 +47,7 @@ console.log("id",id);
 		}
 		//build DirectoryType	
 	if (id !=='#chart')
-    {var directoryType={"episode":view.typeinfo.data.transitStnCol,"perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
+    {var directoryType=options.directoryType;
 	console.log("directoryType",JSON.stringify(directoryType));
 	}
     var T,q, x,j,H,A,P;
