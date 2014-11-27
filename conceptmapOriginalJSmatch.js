@@ -228,13 +228,14 @@ function conceptMap(id, data, options) {
 	var selData=_.pluck(T.get('episodes'),'name');
 	var selData=_.map(selData,function(name) { return name.split(" ")[0];});
 	console.log('selData',selData);
-		/*	window.elx.dashboard.view.notifySelect(view.id,{
+	if (typeof view!=="undefined") {
+			window.elx.dashboard.view.notifySelect(view.id,{
 	            type: "value",
-	            col: selCol,
+	            col: directoryType['episode'],
 	            sels: selData
 	        });
 			
-			*/
+			}
         drawMap();
     }
     function showDetails(Y, X) {
