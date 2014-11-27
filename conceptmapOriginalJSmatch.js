@@ -150,8 +150,9 @@ function conceptMap(id, data, options) {
 			.style("box-shadow", "5px 5px 5px #888")
 			.style("visibility", "hidden");
     	
-		
-    
+	//build DirectoryType	
+	if(typeof view!=="undefined")
+    var directoryType={"episode":view.typeinfo.data.transitStnCol,"perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
 	// helper functions
     function showMap() {
         if (L.node === null) {
@@ -222,6 +223,18 @@ function conceptMap(id, data, options) {
             })
         });
         window.location.hash = '';
+	//notifySelect on the front page
+	
+	var selData=_.pluck(T.get('episodes'),'name');
+	var selData=_.map(selData,function(name) { return name.split(" ")[0];});
+	console.log('selData',selData);
+		/*	window.elx.dashboard.view.notifySelect(view.id,{
+	            type: "value",
+	            col: selCol,
+	            sels: selData
+	        });
+			
+			*/
         drawMap();
     }
     function showDetails(Y, X) {
@@ -428,11 +441,16 @@ console.log("mapBool",mapBool);
 			var countSelection=E.selectAll('.node').size();
 			var countX=X.size();
 		//console.log("QWE data",JSON.stringify(blank), "length :",blank.length,"countSelection :",countSelection, " countX:",countX);
-		var missing=X.attr("id",function(nodes){
+		var missing=X.attr("id",function(nodes){ //missing nodes is to get the nodes that were missing from Y
 		
 	  count=count+1;
 	 	  switch (nodes.depth){
-		  case 0: depth="nodeDepthZero"; break;
+		  case 0: depth="nodeDepthZero"; console.log("nodess.",nodes);
+		  if (typeof view!=='undefined') { 	window.elx.dashboard.view.notifySelect(view.id,{
+	            type: "value",
+	            col: directoryType[nodes.type],
+	            sels: [nodes.name]
+	        });}  break;
 		  case 1: if (mapBool) depth="nodeDepthOneMain"; else depth="nodeDepthOne"; break;
 		  case 2: depth="nodeDepthTwo"; break;
 		  }
@@ -445,7 +463,11 @@ console.log("mapBool",mapBool);
       var Y = X.enter().append("g").attr("id",function(nodes){
 	  count=count+1;
 	 	  switch (nodes.depth){
-		  case 0: depth="nodeDepthZero"; break;
+		  case 0: depth="nodeDepthZero";  if (typeof view!=='undefined') { 	window.elx.dashboard.view.notifySelect(view.id,{
+	            type: "value",
+	            col: directoryType[nodes.type],
+	            sels: [nodes.name]
+	        });} break;
 		  case 1:if (mapBool) depth="nodeDepthOneMain"; else depth="nodeDepthOne"; break;
 		  case 2: depth="nodeDepthTwo";  break; 
 		  }
@@ -493,7 +515,6 @@ console.log("mapBool",mapBool);
 					
 				if(nodes.depth===1 &&nodes._group.length>0) {return scale(d3.round(nodes.cardTypes[0].countMe[0][depthZero]));}  //catch navigated inside
 				else if (nodes.depth===1 && nodes._group.length===0) {   //catch main after navigating inside
-				console.log("!.length:",d3.round(nodes.cardTypes[0].count));
 				return scale(d3.round(nodes.cardTypes[0].count))/2;}
 					 else {
 					
