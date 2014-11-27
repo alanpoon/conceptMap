@@ -1,0 +1,962 @@
+<<<<<<<=view-json=
+{
+  "id":"ConceptmapSteelType",
+  "name":"ConceptmapSteelType",
+  "category":"Chart",
+  "default":{
+    "jsonClass":"View",
+    "elxType":"View",
+    "vtype":"bundle",
+    "state":"visible",
+    "isContainer":false,
+    "position":{
+      "jsonClass":"Position",
+      "elxType":"Position",
+      "height":"600",
+      "width":"600",
+      "zIndex":"auto"
+    },
+    "data":{
+      "jsonClass":"DataEmbedded",
+      "datasource":{
+        "jsonClass":"DataSource",
+        "name":"initData",
+        "stype":"Data",
+        "desc":"default data",
+        "schema":{
+          "jsonClass":"Schema",
+          "caseSensitive":false,
+          "columns":[{
+            "jsonClass":"SchemaColumn",
+            "name":"TRANSIT_STN",
+            "dtype":"String",
+            "attrs":[]
+          },{
+            "jsonClass":"SchemaColumn",
+            "name":"FIN_STN",
+            "dtype":"String",
+            "attrs":[]
+          },{
+            "jsonClass":"SchemaColumn",
+            "name":"FIN_STN_TYPE",
+            "dtype":"String",
+            "attrs":[]
+          },{
+            "jsonClass":"SchemaColumn",
+            "name":"TICKET_TOTAL",
+            "dtype":"Double",
+            "attrs":[]
+          }]
+        },
+        "data":{
+          "jsonClass":"DataRecords",
+          "records":[{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type4"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier4"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":1
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier4"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier2"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type3"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier4"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type3"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier3"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier5"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":1
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier2"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier5"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier2"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type3"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier3"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type2"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier2"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier3"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type2"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier5"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier5"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":1
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type3"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type3"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier3"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type4"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier3"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type5"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier5"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":1
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier4"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type3"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier2"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":2
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type4"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier1"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type4"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier2"
+            },{
+              "jsonClass":"Field",
+              "value":"Local"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          },{
+            "jsonClass":"Record",
+            "fields":[{
+              "jsonClass":"Field",
+              "value":"Steel_Type1"
+            },{
+              "jsonClass":"Field",
+              "value":"Supplier4"
+            },{
+              "jsonClass":"Field",
+              "value":"Foreign"
+            },{
+              "jsonClass":"Field",
+              "value":3
+            }]
+          }]
+        }
+      },
+      "directive":""
+    },
+    "typeinfo":{
+      "jsonClass":"Bundle",
+      "type":"ConceptmapSteelType",
+      "data":{
+        "transitStnCol":"TRANSIT_STN",
+        "finStnCol":"FIN_STN",
+        "finStnTypeCol":"FIN_STN_TYPE",
+        "ticketTotalCol":"TICKET_TOTAL"
+      },
+      "height":"800",
+      "width":"800",
+      "themeName":"Local",
+      "perspectiveName":"Foreign",
+      "episodeName":"SteelType",
+      "entityName":"Tonnage: "
+    }
+  },
+  "includes":["/elx/lib/conceptmapOriginalJSmatch.js"],
+  "edit-section":[{
+    "id":"view",
+    "name":"View"
+  },{
+    "id":"actionbar",
+    "name":"Actionbar"
+  },{
+    "id":"data",
+    "name":"Data"
+  },{
+    "id":"ConceptmapSteelType",
+    "name":"ConceptmapSteelType"
+  },{
+    "id":"filters",
+    "name":"Filters"
+  }]
+}
+========
+<<<<<<<=edit-json=
+{
+  "jsonClass":"ViewSection",
+  "id":"ConceptmapSteelType",
+  "rows":[{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-property-label",
+      "type":"label",
+      "text":"Chart Height"
+    },{
+      "jsonClass":"Field",
+      "id":"typeinfo-chartHeight",
+      "type":"field",
+      "value":"${typeinfo.chartHeight}",
+      "readonly":false
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-property-label",
+      "type":"label",
+      "text":"Chart Width"
+    },{
+      "jsonClass":"Field",
+      "id":"typeinfo-chartWidth",
+      "type":"field",
+      "value":"${typeinfo.chartWidth}",
+      "readonly":false
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-transitStnCol-label",
+      "type":"label",
+      "text":"Steel Type"
+    },{
+      "jsonClass":"SchemaColumnSelect",
+      "id":"typeinfo-transitStnCol",
+      "type":"select-schema-column",
+      "value":"${typeinfo.transitStnCol}"
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-finStnCol-label",
+      "type":"label",
+      "text":"Supplier"
+    },{
+      "jsonClass":"SchemaColumnSelect",
+      "id":"typeinfo-finStnCol",
+      "type":"select-schema-column",
+      "value":"${typeinfo.finStnCol}"
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-finStnTypeCol-label",
+      "type":"label",
+      "text":"Location"
+    },{
+      "jsonClass":"SchemaColumnSelect",
+      "id":"typeinfo-finStnTypeCol",
+      "type":"select-schema-column",
+      "value":"${typeinfo.finStnTypeCol}"
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-ticketTotalCol-label",
+      "type":"label",
+      "text":"Value"
+    },{
+      "jsonClass":"SchemaColumnSelect",
+      "id":"typeinfo-ticketTotalCol",
+      "type":"select-schema-column",
+      "value":"${typeinfo.ticketTotalCol}"
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-themeName-label",
+      "type":"label",
+      "text":"Theme Name"
+    },{
+      "jsonClass":"Field",
+      "id":"typeinfo-themeName",
+      "type":"field",
+      "value":"${typeinfo.themeName}",
+      "readonly":false
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-perspectiveName-label",
+      "type":"label",
+      "text":"Perspective Name"
+    },{
+      "jsonClass":"Field",
+      "id":"typeinfo-perspectiveName",
+      "type":"field",
+      "value":"${typeinfo.perspectiveName}",
+      "readonly":false
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-episodeName-label",
+      "type":"label",
+      "text":"Episode Name"
+    },{
+      "jsonClass":"Field",
+      "id":"typeinfo-episodeName",
+      "type":"field",
+      "value":"${typeinfo.episodeName}",
+      "readonly":false
+    }]
+  },{
+    "jsonClass":"Row",
+    "cols":[{
+      "jsonClass":"Label",
+      "id":"typeinfo-entityName-label",
+      "type":"label",
+      "text":"Entity Name"
+    },{
+      "jsonClass":"Field",
+      "id":"typeinfo-entityName",
+      "type":"field",
+      "value":"${typeinfo.entityName}",
+      "readonly":false
+    }]
+  }]
+}
+========
+<<<<<<<=edit-js=
+elx.bundle.type.ConceptmapSteelType = {
+
+  	init : function(view) {
+		$("#typeinfo-chartHeight").val(view.typeinfo.height);
+      	$("#typeinfo-chartWidth").val(view.typeinfo.width);
+      $("#typeinfo-transitStnCol").val(view.typeinfo.data.transitStnCol);
+        $("#typeinfo-finStnCol").val(view.typeinfo.data.finStnCol);
+      $("#typeinfo-finStnTypeCol").val(view.typeinfo.data.finStnTypeCol);
+      $("#typeinfo-ticketTotalCol").val(view.typeinfo.data.ticketTotalCol);
+      $("#typeinfo-themeName").val(view.typeinfo.themeName);
+      $("#typeinfo-episodeName").val(view.typeinfo.episodeName);
+      $("#typeinfo-perspectiveName").val(view.typeinfo.perspectiveName);
+      $("#typeinfo-entityName").val(view.typeinfo.entityName);
+	},
+
+	validate : function(view) {
+		return true;
+	},
+
+	save : function(view) {
+		var cHeight = $("#typeinfo-chartHeight").val();
+		view.typeinfo.height = cHeight;
+      	var cWidth = $("#typeinfo-chartWidth").val();
+		view.typeinfo.width = cWidth;
+      var dTransitStn = $("#typeinfo-transitStnCol").val();
+		view.typeinfo.data.transitStnCol =dTransitStn;
+      	var dFinStn = $("#typeinfo-finStnCol").val();
+		view.typeinfo.data.finStnCol = dFinStn;
+      	var dFinStnType = $("#typeinfo-finStnTypeCol").val();
+		view.typeinfo.data.finStnTypeCol = dFinStnType;
+      	var dTicketTotal = $("#typeinfo-ticketTotalCol").val();
+		view.typeinfo.data.ticketTotalCol = dTicketTotal;
+      var dThemeName = $("#typeinfo-themeName").val();
+		view.typeinfo.themeName = dThemeName;
+         var dPerspectiveName = $("#typeinfo-perspectiveName").val();
+		view.typeinfo.perspectiveName = dPerspectiveName;
+        var dEpisodeName = $("#typeinfo-episodeName").val();
+		view.typeinfo.episodeName = dEpisodeName;
+       var dEntityName = $("#typeinfo-entityName").val();
+		view.typeinfo.entityName = dEntityName;
+	}
+};
+========
+<<<<<<<=view-html=
+<style>
+#header{position:relative;margin:10px 0;padding-top:0}#header img{right:0}#menu-primary{width:auto;margin:0;position:absolute;top:50%;margin-top:-10px;right:0}#footer-content{width:100%}#footer .copyright{float:right}#con-sidebar{width:34%;margin-left:3%;float:left;margin-top:58px}.concept-thumb{display:block;width:250px;height:250px;margin-bottom:88px}a.concept-thumb:hover{border:none}a.btn{background-color:#0da4d3;color:#fff!important;font-weight:700;text-transform:uppercase;padding:4px 10px;border-radius:5px;cursor:pointer}a.btn:hover,a.btn.active{color:#fff;background-color:#000;border:none}#hidden-comments{display:none}#show-comments{margin:20px 0}#episode-container{position:relative;width:750px;height:600px;margin:20px auto;padding-top:65px}#episodes{margin:0;height:380px}#episodes li{list-style:none;margin:0;padding:0;display:none}#episodes li.first{display:block}#episodes li > a{position:relative;display:block;width:750px}#episodes li > a:hover{border:0}#episodes h2{text-transform:uppercase;position:absolute;right:0;top:250px;background-color:#fff;padding:10px 30px}#episodes li > a h2,#episodes li > a .date{-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}#episodes li > a:hover h2,#episodes li > a:hover .date{background-color:#000;color:#fff}#episodes .date{position:absolute;right:0;top:300px;color:#999;background-color:#fff;padding:5px 30px 5px 10px}#episodes p{margin-top:20px;width:500px}#transport{position:absolute;top:410px;width:750px}#transport a{position:absolute;height:30px;width:30px;line-height:30px;text-align:center;display:block;background-color:rgba(0,0,0,.5);color:#fff;z-index:99}#next-episode{right:0}#transport a:hover{border:0;background-color:#000}#episode-thumbs{position:absolute;top:0;background-color:#fff;margin:0;width:750px;z-index:100}#episode-thumbs li{list-style:none;margin:0;padding:0;display:inline-block}#episode-thumbs li a{display:block;border:6px solid #fff}#episode-thumbs li a:hover{border-color:#0da4d3}#controls{margin-top:20px;width:750px}#controls .btn{position:relative;float:right;margin-left:10px;z-index:99}svg{font-family:Abel,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px}.episode > rect{stroke:#fff;stroke-width:1.5px}path{fill:none}.episode,.node,.detail text,.all-episodes{cursor:pointer}.all-episodes{fill:#aaa}.detail a text:hover,text.all-episodes:hover{text-decoration:underline}#graph-info{position:absolute;width:140px;right:0;bottom:0;padding-bottom:10px}#references h3{color:#999}em.ref{color:#999;margin-left:10px}.ref-episode a,.ref-episode a:visited{white-space:nowrap;color:#999}#map .leaflet-popup-content a{display:block;margin-top:10px;border-bottom:1px solid transparent}#map .leaflet-popup-content a:hover{color:#000;border-bottom-color:#0da4d3}.collapseomatic{background-image:url(images/arrow-down.png);background-repeat:no-repeat;padding:0 0 10px 16px;cursor:pointer}.arrowright{background-position:top right;padding:0 16px 10px 0}.noarrow{background-image:none!important;padding:0 0 10px}.colomat-hover{text-decoration:underline}.colomat-close{background-image:url(images/arrow-up.png)}.collapseomatic_excerpt,.collapseomatic_content{margin-top:0;margin-left:16px;padding:0}.content_collapse_wrapper,collapseomatic_content{position:absolute;left:-999em}.collapseall,.expandall{cursor:pointer}.collapseall:hover,.expandall:hover{text-decoration:underline}.maptastic{position:absolute!important;left:-10000px!important;display:block!important}@font-face{font-family:'Abel';font-style:normal;font-weight:400;src:local(Abel),local(Abel-Regular),url(http://themes.googleusercontent.com/static/fonts/abel/v3/EAqh528fFdbUek8UOky4sA.woff) format("woff")}@font-face{font-family:'Oswald';font-style:normal;font-weight:400;src:local('Oswald Regular'),local(Oswald-Regular),url(http://themes.googleusercontent.com/static/fonts/oswald/v7/-g5pDUSRgvxvOl5u-a_WHw.woff) format("woff")}@font-face{font-family:'Terminal Dosis';font-style:normal;font-weight:400;src:local('Dosis Regular'),local(Dosis-Regular),url(http://themes.googleusercontent.com/static/fonts/terminaldosis/v5/_IcvjW_kWHsIHjjUsLbdpFGxLvFzKVP0OsRYGzgS_zk.woff) format("woff")}@font-face{font-family:'Droid Serif';font-style:normal;font-weight:400;src:local('Droid Serif'),local(DroidSerif),url(http://themes.googleusercontent.com/static/fonts/droidserif/v3/0AKsP294HTD-nvJgucYTaIbN6UDyHWBl620a-IRfuBk.woff) format("woff")}@font-face{font-family:'Droid Serif';font-style:italic;font-weight:400;src:local('Droid Serif Italic'),local(DroidSerif-Italic),url(http://themes.googleusercontent.com/static/fonts/droidserif/v3/cj2hUnSRBhwmSPr9kS5899kZXW4sYc4BjuAIFc1SXII.woff) format("woff")}
+</style>
+<div id='${id}'></div>	
+<div class='elx-script'>
+	var div = $("#${id}");
+	var view = elx.host.getViewById("${id}");
+ console.log("id: ",'${id}',"view: ",view);
+
+ var rawData=${code};
+ 
+  var processedData=[];
+  rawData.forEach(function(d,i) {
+  processedData.push({
+  "TRANSIT_STN": d[view.typeinfo.data.transitStnCol],"FIN_STN":d[view.typeinfo.data.finStnCol]
+  ,"FIN_STN_TYPE":d[view.typeinfo.data.finStnTypeCol],"TICKET_TOTAL":d[view.typeinfo.data.ticketTotalCol]
+  });
+  })
+  // console.log("processedData",JSON.stringify(processedData));
+var tmp = _.groupBy(processedData, function(d) {
+
+    return d['FIN_STN'];
+});
+
+var tmp2 = {};
+_.each(tmp, function(t, unit) {
+    tmp2[unit] = _.groupBy(t, function(d) {
+        return d['TRANSIT_STN'];
+    });
+});
+
+var aggregated = [];
+_.each(tmp2, function(t, unit) {
+    _.each(t, function(items, currency) {
+        var frequency = 0;
+        _.each(items, function(item) {
+
+            finstntype = item['FIN_STN_TYPE'];
+            frequency += item['TICKET_TOTAL'];
+        });
+        aggregated.push({
+            "TRANSIT_STN": currency,
+            "FIN_STN": unit,
+            "FIN_STN_TYPE": finstntype,
+            "TICKET_TOTAL": frequency
+        });
+    });
+});
+
+var nested = d3.nest()
+    .key(function(d) {
+        return d.FIN_STN;
+    })
+    .key(function(d) {
+        return d.TRANSIT_STN + " ";;
+    })
+    .key(function(d) {
+        return d.FIN_STN_TYPE;
+    })
+    .entries(aggregated);
+
+var nested2 = d3.nest()
+    .key(function(d) {
+        return d.TRANSIT_STN + " ";
+    })
+    .key(function(d) {
+        return d.FIN_STN;
+    })
+    .key(function(d) {
+        return d.FIN_STN_TYPE;
+    })
+    .entries(aggregated);
+
+var conceptmapData = {
+    episodes: [],
+    themes: [],
+    perspectives: []
+};
+var stationsOut = [];
+var episodeOut = [];
+var uniqueOut = [];
+var maxCount = 0;
+var minCount = 10000;
+var themeName = view.typeinfo.themeName;
+var episodeName = view.typeinfo.episodeName;
+var perspectiveName = view.typeinfo.perspectiveName;
+var entityName=view.typeinfo.entityName;
+  //console.log("nested2: ", JSON.stringify(nested2));
+
+
+nested2.forEach(function(xnm, i) {
+    //new 
+    var episode = {
+        type: "episode",
+        name: xnm.key,
+        episode: i + 1,
+        cardTypes: [],
+
+        slug: "",
+        date: new Date(),
+        links: []
+    };
+    var count = 0;
+    var countMeArr = [];
+    var oldObj = {};
+    xnm.values.forEach(function(e) {
+
+        var toCardMeObj = {};
+        toCardMeObj[e.key] = e.values[0].values[0].TICKET_TOTAL;
+        newObj = _.extend(oldObj, toCardMeObj);
+        oldObj = newObj;
+        count += e.values[0].values[0].TICKET_TOTAL;
+        if (count >= maxCount) maxCount = count;
+        if (count <= minCount) minCount = count;
+    })
+
+    countMeArr.push(newObj);
+
+    xnm.values[0].values.forEach(function(stationOut) {
+            episode.cardTypes.push({
+                cardType: stationOut.key,
+                count: count,
+                countMe: countMeArr
+            });
+            episode.count = count;
+        })
+        //
+    xnm.values.forEach(function(lnm) {
+        episode.links.push(lnm.key);
+    })
+
+    conceptmapData.episodes.push(episode);
+})
+nested.forEach(function(stationIn, i) {
+    // console.log("stationIn: ",stationIn);
+    var count = 0;
+    var countMeArr = [];
+    var oldObj = {};
+    stationIn.values.forEach(function(e) {
+        var toCardMeObj = {};
+        toCardMeObj[e.key] = e.values[0].values[0].TICKET_TOTAL;
+        newObj = _.extend(oldObj, toCardMeObj);
+        oldObj = newObj;
+        count += e.values[0].values[0].TICKET_TOTAL;
+        if (count >= maxCount) maxCount = count;
+        if (count <= minCount) minCount = count;
+    });
+    countMeArr.push(newObj);
+    stationIn.values[0].values.forEach(function(stationOut) {
+        stationOut.cardTypes = [];
+
+        stationOut.cardTypes.push({
+            cardType: stationOut.key,
+            count: count,
+            countMe: countMeArr
+        });
+        stationsOut.push(stationOut);
+    })
+});
+//console.log("stationsOut#",JSON.stringify(stationsOut));
+toThemesArr = [];
+toPerspectiveArr = [];
+stationsOut.forEach(function(d, i) {
+
+    //console.log("d.key: ",d.key);
+    if (d.key == 'Local') {
+        toThemesArr.push(d);
+    } else toPerspectiveArr.push(d);
+})
+
+toThemesArr.forEach(function(d) {
+    //	console.log("theme count",d);
+    var theme = {
+        type: "theme",
+        name: d.values[0].FIN_STN,
+        cardTypes: d.cardTypes,
+        count: d.values[0].TICKET_TOTAL,
+        slug: ""
+    };
+    conceptmapData.themes.push(theme);
+});
+
+toPerspectiveArr.forEach(function(d, i) {
+
+    var perspective = {
+        type: "perspective",
+        name: d.values[0].FIN_STN,
+        slug: "",
+        count: d.values[0].TICKET_TOTAL,
+        cardTypes: d.cardTypes,
+        //group: (i%2==0?i+1:i)
+        group: 0
+    };
+    conceptmapData.perspectives.push(perspective);
+});
+
+// console.log("conceptmapDataprinted:",JSON.stringify(conceptmapData));
+ 
+conceptMap("#${id}", conceptmapData, {
+    themeColor: "white",
+    showConnector: false,
+    width: view.typeinfo.width,
+    height: view.typeinfo.height,
+    centerCircleRadius: 60,
+    maxCount: maxCount,
+    minCount: minCount,
+    themeName: themeName,
+    episodeName: episodeName,
+    perspectiveName: perspectiveName,
+  entityName: entityName,
+    zLimit: 50
+});
+    
+  	elx.host.setupAutoResize(div, function(w,h){
+  		
+  		if(w !== view.typeinfo.width || h != view.typeinfo.height){
+  			view.typeinfo.height = h;
+  			view.typeinfo.width = w;
+  			
+  			$("#${id}").empty();
+  			conceptMap("#${id}", conceptmapData, {themeColor: "white", showConnector: false, width: w, 
+  height: h, centerCircleRadius: 60, maxCount: maxCount, minCount: minCount, themeName: themeName,
+    episodeName: episodeName,
+    perspectiveName: perspectiveName,entityName: entityName,
+    zLimit: 50});	
+    
+  		}
+    });
+  	
+</div>
+========
