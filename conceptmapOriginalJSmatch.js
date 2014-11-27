@@ -1,4 +1,5 @@
 function conceptMap(id, data, options) { 
+console.log("id",id);
      d3.selection.prototype.size = function() {
     var n = 0;
     this.each(function() { ++n; });
@@ -44,6 +45,11 @@ function conceptMap(id, data, options) {
 			if('undefined' !== typeof options.themeColor) themeColor = options.themeColor;
 			if('undefined' !== typeof options.showConnector) showConnector = options.showConnector;
 		}
+		//build DirectoryType	
+	if (id !=='#chart')
+    {var directoryType={"episode":view.typeinfo.data.transitStnCol,"perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
+	console.log("directoryType",JSON.stringify(directoryType));
+	}
     var T,q, x,j,H,A,P;
     var L = {},k = {};
     var i,y;
@@ -150,9 +156,7 @@ function conceptMap(id, data, options) {
 			.style("box-shadow", "5px 5px 5px #888")
 			.style("visibility", "hidden");
     	
-	//build DirectoryType	
-	if(typeof view!=="undefined")
-    var directoryType={"episode":view.typeinfo.data.transitStnCol,"perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
+	
 	// helper functions
     function showMap() {
         if (L.node === null) {
@@ -228,7 +232,7 @@ function conceptMap(id, data, options) {
 	var selData=_.pluck(T.get('episodes'),'name');
 	var selData=_.map(selData,function(name) { return name.split(" ")[0];});
 	console.log('selData',selData);
-	if (typeof view!=="undefined") {
+	if (id !=='#chart') {
 			window.elx.dashboard.view.notifySelect(view.id,{
 	            type: "value",
 	            col: directoryType['episode'],
@@ -447,7 +451,7 @@ console.log("mapBool",mapBool);
 	  count=count+1;
 	 	  switch (nodes.depth){
 		  case 0: depth="nodeDepthZero"; console.log("nodess.",nodes);
-		  if (typeof view!=='undefined') { 	window.elx.dashboard.view.notifySelect(view.id,{
+		  if (id !=='#chart') { 	window.elx.dashboard.view.notifySelect(view.id,{
 	            type: "value",
 	            col: directoryType[nodes.type],
 	            sels: [nodes.name]
@@ -464,7 +468,7 @@ console.log("mapBool",mapBool);
       var Y = X.enter().append("g").attr("id",function(nodes){
 	  count=count+1;
 	 	  switch (nodes.depth){
-		  case 0: depth="nodeDepthZero";  if (typeof view!=='undefined') { 	window.elx.dashboard.view.notifySelect(view.id,{
+		  case 0: depth="nodeDepthZero";  if (id !=='#chart') { 	window.elx.dashboard.view.notifySelect(view.id,{
 	            type: "value",
 	            col: directoryType[nodes.type],
 	            sels: [nodes.name]
