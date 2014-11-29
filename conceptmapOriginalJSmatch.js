@@ -5,6 +5,7 @@ console.log("id",id);
     this.each(function() { ++n; });
     return n;
   };
+  String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 	var w = 1200,
     c = 800,
     h = c,
@@ -25,7 +26,7 @@ console.log("id",id);
     ease = 'elastic',
     highlightColor = '#0da4d3',
 	themeColor = "#666",
-	  showConnector = true; // connector between perspectives
+	  showConnector = true,directoryType={"episode":"episode","theme":"theme","perspective":"perspective"}; // connector between perspectives
 	  if('undefined' !== typeof options){
 			if('undefined' !== typeof options.width) w = options.width;
 			if('undefined' !== typeof options.height) {
@@ -44,12 +45,11 @@ console.log("id",id);
 			if('undefined' !== typeof options.ease) ease = options.ease;
 			if('undefined' !== typeof options.themeColor) themeColor = options.themeColor;
 			if('undefined' !== typeof options.showConnector) showConnector = options.showConnector;
+			if('undefined' !== typeof options.directoryType) directoryType = options.directoryType;
+		
 		}
 		//build DirectoryType	
-	if (id !=='#chart')
-    {var directoryType=options.directoryType;
-	console.log("directoryType",JSON.stringify(directoryType));
-	}
+
     var T,q, x,j,H,A,P;
     var L = {},k = {};
     var i,y;
@@ -85,6 +85,10 @@ console.log("id",id);
                     .range([7, 25]);
 		Y=data;
         T = d3.map(Y);
+		//for notifySelect
+	var episodesData=_.pluck(T.get('episodes'),'name');
+	var themePerspectiveData=_.union(_.pluck(T.get('themes'),'name'),_.pluck(T.get('perspectives'),'name'));
+	
 		
         q = d3.merge(T.values());
         x = {};
@@ -229,15 +233,17 @@ console.log("id",id);
         window.location.hash = '';
 	//notifySelect on the front page
 	
-	var selData=_.pluck(T.get('episodes'),'name');
-	var selData=_.map(selData,function(name) { return name.split(" ")[0];});
-	console.log('selData',selData);
-	if (id !=='#chart') {
-			window.elx.dashboard.view.notifySelect(view.id,{
-	            type: "value",
+
+	if (id !=='#chart' && !id.contains('preview')) {
+	//directoryType['theme'] and directoryType['perspective'] is the same universe Col
+	//the main notify here is 'episode'
+	var selObj={type:'and-value',list:[{  type: "value",
+	            col: directoryType['theme'],
+	            values: themePerspectiveData},{ type: "value",
 	            col: directoryType['episode'],
-	            sels: selData
-	        });
+	            values: episodesData}]};
+				console.log("selObj",JSON.stringify(selObj));
+			window.elx.dashboard.view.notifySelect(id.split("#")[1],selObj);
 			
 			}
         drawMap();
@@ -451,11 +457,31 @@ console.log("mapBool",mapBool);
 	  count=count+1;
 	 	  switch (nodes.depth){
 		  case 0: depth="nodeDepthZero"; console.log("nodess.",nodes);
-		  if (id !=='#chart') { 	window.elx.dashboard.view.notifySelect(view.id,{
-	            type: "value",
-	            col: directoryType[nodes.type],
-	            sels: [nodes.name]
-	        });}  break;
+	
+		  if (id !=='#chart' && !id.contains('preview')) { 
+			if (nodes.type=='episode') {
+				  var selObj={'type':'and-value','list':[
+			{
+			type:"value",
+			col: directoryType['theme'],
+			values:themePerspectiveData
+			},{ type: "value",
+			col: directoryType[nodes.type],
+			values: [nodes.name]}]};
+			} else {
+				  var selObj={'type':'and-value','list':[
+			{
+			type:"value",
+			col: directoryType['episode'],
+			values:episodesData
+			},{ type: "value",
+			col: directoryType[nodes.type],
+			values: [nodes.name]}]};
+			
+			}
+	
+			console.log("selObj",JSON.stringify(selObj));
+				window.elx.dashboard.view.notifySelect(id.split("#")[1],selObj);}  break;
 		  case 1: if (mapBool) depth="nodeDepthOneMain"; else depth="nodeDepthOne"; break;
 		  case 2: depth="nodeDepthTwo"; break;
 		  }
@@ -468,11 +494,30 @@ console.log("mapBool",mapBool);
       var Y = X.enter().append("g").attr("id",function(nodes){
 	  count=count+1;
 	 	  switch (nodes.depth){
-		  case 0: depth="nodeDepthZero";  if (id !=='#chart') { 	window.elx.dashboard.view.notifySelect(view.id,{
-	            type: "value",
-	            col: directoryType[nodes.type],
-	            sels: [nodes.name]
-	        });} break;
+		  case 0: depth="nodeDepthZero";  if (id !=='#chart' && !id.contains('preview')) { 	
+		  		if (nodes.type=='episode') {
+				  var selObj={'type':'and-value','list':[
+			{
+			type:"value",
+			col: directoryType['theme'],
+			values:themePerspectiveData
+			},{ type: "value",
+			col: directoryType[nodes.type],
+			values: [nodes.name]}]};
+			} else {
+				  var selObj={'type':'and-value','list':[
+			{
+			type:"value",
+			col: directoryType['episode'],
+			values:episodesData
+			},{ type: "value",
+			col: directoryType[nodes.type],
+			values: [nodes.name]}]};
+			
+			}
+	
+				console.log("selObj",JSON.stringify(selObj));
+		  window.elx.dashboard.view.notifySelect(id.split("#")[1],selObj);} break;
 		  case 1:if (mapBool) depth="nodeDepthOneMain"; else depth="nodeDepthOne"; break;
 		  case 2: depth="nodeDepthTwo";  break; 
 		  }

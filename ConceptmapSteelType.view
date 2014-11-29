@@ -783,7 +783,7 @@ var nested = d3.nest()
         return d.FIN_STN;
     })
     .key(function(d) {
-        return d.TRANSIT_STN + " ";;
+        return d.TRANSIT_STN;
     })
     .key(function(d) {
         return d.FIN_STN_TYPE;
@@ -792,7 +792,7 @@ var nested = d3.nest()
 
 var nested2 = d3.nest()
     .key(function(d) {
-        return d.TRANSIT_STN + " ";
+        return d.TRANSIT_STN;
     })
     .key(function(d) {
         return d.FIN_STN;
@@ -926,7 +926,9 @@ toPerspectiveArr.forEach(function(d, i) {
 });
 
 // console.log("conceptmapDataprinted:",JSON.stringify(conceptmapData));
- 
+ var directoryType={"episode":view.typeinfo.data.transitStnCol,
+  "perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
+  console.log("directoryType",JSON.stringify(directoryType));
 conceptMap("#${id}", conceptmapData, {
     themeColor: "white",
     showConnector: false,
@@ -939,7 +941,8 @@ conceptMap("#${id}", conceptmapData, {
     episodeName: episodeName,
     perspectiveName: perspectiveName,
   entityName: entityName,
-    zLimit: 50
+    zLimit: 50,
+  directoryType:directoryType
 });
     
   	elx.host.setupAutoResize(div, function(w,h){
@@ -953,7 +956,7 @@ conceptMap("#${id}", conceptmapData, {
   height: h, centerCircleRadius: 60, maxCount: maxCount, minCount: minCount, themeName: themeName,
     episodeName: episodeName,
     perspectiveName: perspectiveName,entityName: entityName,
-    zLimit: 50});	
+    zLimit: 50, directoryType:directoryType});	
     
   		}
     });
