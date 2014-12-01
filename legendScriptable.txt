@@ -1,0 +1,52 @@
+<div id='${id}Legend'>Legend</div>
+<div id='${id}'></div>
+<div class='elx-datahtml-script'>
+var svg=d3.select('#'+viewId).append("svg").attr("width",600);
+var circle = svg.selectAll("circle")
+    .data(['1', '2', '3a', '3b','4a','4b','5']);
+//    .data([1, 2, 3a, 3b,4a,4b]);
+//['1', '2', '3a', '3b','4a','4b']
+var circleClass={'1':{cy:18,cx:20,r:15,stroke:"#000",fill:"#000",text:"Steel Types",content:""},
+				'2':{cy:51,cx:20,r:15,stroke:"#000",fill:"#fff",text:"Suppliers",content:""},
+                 '3a':{cy:80,cx:15,r:10,stroke:"#000",fill:"#fff",text:"",content:""},
+                 '3b':{cy:80,cx:50,r:10,stroke:"#0da4d3",fill:"#fff",text:"Foreign Supplier",content:""},
+				 '4a':{cy:105,cx:15,r:10,stroke:"#000",fill:"#fff",text:"",content:""},
+                 '4b':{cy:105,cx:50,r:10,stroke:"#000",fill:"#0da4d3",text:"Local Supplier",content:""},
+				 '5':{cy:133,cx:20,r:15,stroke:"#0da4d3",fill:"#0da4d3",text:"Number of nodes",content:"5"}
+				 };
+//solid black: Steel type
+//white with black stroke: suppliers
+//smaller white with black Stroke->teal Stroke: Foreign Supplier
+//smaller white with black Stroke->teal solid with black Stroke:Local Supplier
+
+var circleEnter = circle.enter().append("circle");
+circleEnter.attr("cy", function(d, i) {return circleClass[d].cy;});
+circleEnter.attr("cx", function(d, i) { return circleClass[d].cx; });
+circleEnter.attr("r", function(d) { return circleClass[d].r; });
+circleEnter.attr("stroke", function(d) { return circleClass[d].stroke; });
+circleEnter.attr("fill", function(d) { return circleClass[d].fill; });
+
+svg.append("defs").append("marker").attr("id","Triangle")
+		.attr("viewBox","0 0 10 10").attr("refX","0").attr("refY","5").attr("markerUnit","4").attr("markerHeight","3").attr("orient","auto")
+		.append("path").attr("d","M 0 0 L 10 5 L 0 10 z");
+		
+		//.style({"viewBox":"0 0 10 10","refX":"0","refY":"5","markerUnit":"4","markerHeight":"3","orient":"auto"});
+	
+		var arrowData={'1':[{"x":38,"y":18},{"x":50,"y":18}],'2':[{"x":38,"y":51},{"x":50,"y":51}],
+		'3a':[{"x":18,"y":80},{"x":38,"y":80}],
+		'3b':[{"x":62,"y":80},{"x":80,"y":80}],
+		'4a':[{"x":18,"y":105},{"x":38,"y":105}],'4b':[{"x":62,"y":105},{"x":80,"y":105}],'5':[{"x":38,"y":133},{"x":50,"y":133}]};
+	var groupArrow=svg.selectAll("g").data(['1', '2', '3a', '3b','4a','4b','5']).enter().append("g");
+		var line=d3.svg.line()
+				.x(function(d) { return d.x; })
+                .y(function(d) { return d.y; })
+                .interpolate("linear");
+	groupArrow.append("path").attr("d",function(d) {return line(arrowData[d]);})
+			.attr("stroke",function(d) {return (d.contains('a')) ? 'grey':'black';})
+			.attr("stroke-width",function(d) {return (d.contains('a')) ? 3:5;})
+			.style({'fill':'none','marker-end':'url(#Triangle)'});
+var textClass={'1':{text:"Steel Types",x:70,y:22},'2':{text:"Suppliers",x:70,y:55},'3':{text:"Foreign Suppliers when mouseover centre node",x:100,y:85},
+		'4':{text:"Local Suppliers when mouseover centre node",x:100,y:110},'5a':{text:"5",x:16,y:137},'5b':{text:"Number of nodes in it",x:70,y:137}};
+var groupText=svg.selectAll("text").data(['1','2','3','4','5a','5b']).enter().append("text");
+groupText.attr("x",function(d) {return textClass[d].x;}).attr("y",function(d) {return textClass[d].y;}).text(function(d) {return textClass[d].text});
+</div>

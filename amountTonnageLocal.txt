@@ -1,0 +1,56 @@
+<table class='ui-widget ui-widget-content' style='width:100%'></table>
+<div class='elx-datahtml-script'>
+    var parent = $("#"+viewId).css("overflow","auto");
+    var data = parent.data("data");
+   
+      var table = $("table:first",parent);
+    var tbody = "";
+  var typeInfoPath={"keyCol":"Key","value1Col":"Amount","value2Col":"Tonnage","stockGroupCol":"SG","supplierCodeCol":"sc"};
+  var dataJSON = arrToJSON(data, typeInfoPath);
+   console.log("stockGroup",_.uniq(_.pluck(dataJSON,'stockGroupCol')));
+   console.log('stockGroupSize',_.size(_.uniq(_.pluck(dataJSON,'stockGroupCol'))));
+      console.log("supplierCode",_.uniq(_.pluck(dataJSON,'supplierCodeCol')));
+      console.log('supplierCode',_.size(_.uniq(_.pluck(dataJSON,'supplierCodeCol'))));
+    dataJSON=_.where(dataJSON,{keyCol:"Local"});
+  console.log('dataJSONSize',_.size(dataJSON));
+ // console.log('dataJSON',JSON.stringify(dataJSON));
+ var aggr1=d3.round(sum(_.pluck(dataJSON, "value1Col")),0);
+ 
+  var aggr2=d3.round(sum(_.pluck(dataJSON, "value2Col")),0);
+  var outputArr=[[typeInfoPath.value1Col,formatValue(aggr1)],[typeInfoPath.value2Col,formatValue(aggr2)]];
+  console.log("outputArr",JSON.stringify(outputArr));
+    $.each(outputArr, function() {
+        var trow = "";
+        $.each(this, function(k , v) {
+            trow += "&#60;td style='padding:8px;border: 1px solid gray' &#62;"+v+"&#60;/td&#62;";
+        })
+        tbody += "&#60;tr&#62;"+trow+"&#60;/tr&#62;";                
+    })
+    table.html(tbody);
+ 
+    function arrToJSON(data, typeInfoPath) {
+      var typeInfoArr = [];
+      var dataArr = [];
+      for (var propertyName in typeInfoPath) {
+          typeInfoArr.push(propertyName);
+      }
+      console.log("typeinfoArr", JSON.stringify(typeInfoArr));
+      _.each(data, function(d, i) {
+
+          var dataObject = _.object(typeInfoArr, d);
+          dataArr.push(dataObject);
+      })
+      return dataArr;
+  }
+  function sum (arr) {
+    return _.reduce(arr, (function(memo, num) {
+        return memo + num;
+    }), 0);
+}
+function formatValue(value) {
+var prefix=d3.formatPrefix(1000);
+console.log("valu",value);
+return ' '+d3.round(prefix.scale(value),2)+prefix.symbol;
+
+}
+</div>
