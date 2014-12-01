@@ -26,7 +26,9 @@ console.log("id",id);
     ease = 'elastic',
     highlightColor = '#0da4d3',
 	themeColor = "#666",
-	  showConnector = true,directoryType={"episode":"episode","theme":"theme","perspective":"perspective"}; // connector between perspectives
+	  showConnector = true,directoryType={"episode":"episode","theme":"theme","perspective":"perspective"},
+	  prefix={symbol:'T',scale:function(n){return n;}},
+	  formatValue=function(value) {return prefix.symbol+'ui '+d3.round(prefix.scale(value),2);}; // connector between perspectives
 	  if('undefined' !== typeof options){
 			if('undefined' !== typeof options.width) w = options.width;
 			if('undefined' !== typeof options.height) {
@@ -46,7 +48,9 @@ console.log("id",id);
 			if('undefined' !== typeof options.themeColor) themeColor = options.themeColor;
 			if('undefined' !== typeof options.showConnector) showConnector = options.showConnector;
 			if('undefined' !== typeof options.directoryType) directoryType = options.directoryType;
-		
+			if('undefined' !== typeof options.prefix) prefix = options.prefix;
+			if('undefined' !== typeof options.formatValue) formatValue = options.formatValue;
+			
 		}
 		//build DirectoryType	
 
@@ -561,7 +565,6 @@ console.log("mapBool",mapBool);
                 	}
 					if (!nodes._group) return scale(d3.round(nodes.cardTypes[0].count))/2; //catch main after refresh
 					else {
-				//	console.log("!else",nodes, " nodes.depth",nodes.depth,"depthZero: ",depthZero, " nodes.cardTypes:",d3.round(nodes.cardTypes[0].countMe[0][depthZero]));
 					
 				if(nodes.depth===1 &&nodes._group.length>0) {return scale(d3.round(nodes.cardTypes[0].countMe[0][depthZero]));}  //catch navigated inside
 				else if (nodes.depth===1 && nodes._group.length===0) {   //catch main after navigating inside
@@ -615,10 +618,10 @@ console.log("mapBool",mapBool);
             }
 			return nodes.x < 180 ? 'translate(' + t + ')' : 'rotate(180)translate(-' + t + ')'
         }).append("tspan").attr("dy",+20).text(function (nodes) {
-				if (!nodes._group && nodes.depth===1) {return entityName+ d3.round(nodes.cardTypes[0].count);}
-		else if (nodes._group.length===0 && nodes.depth===1) {return entityName+ d3.round(nodes.cardTypes[0].count);}
+				if (!nodes._group && nodes.depth===1) {return entityName+ formatValue(nodes.cardTypes[0].count);}
+		else if (nodes._group.length===0 && nodes.depth===1) {return entityName+ formatValue(nodes.cardTypes[0].count);}
 		else if (nodes.depth===1 ) {
-				return entityName+d3.round(nodes.cardTypes[0].countMe[0][depthZero]);}
+				return entityName+formatValue(nodes.cardTypes[0].countMe[0][depthZero]);}
 		        });
 				//--end UI
 	//UI2 adds tspan for the value to nodeDepthOne
@@ -640,7 +643,7 @@ console.log("mapBool",mapBool);
         }).append("tspan").attr("dy",+20).text(function (nodes) {
 		if (!nodes.isGroup) {
 		var depthOne=(nodes.parent.name);
-		return entityName+ d3.round(nodes.cardTypes[0].countMe[0][depthOne]);}
+		return entityName+ formatValue(nodes.cardTypes[0].countMe[0][depthOne]);}
 		   });
 				//--end UI2			
         X.selectAll('text.label-stroke') .attr('display', function (nodes) {
@@ -686,20 +689,20 @@ console.log("mapBool",mapBool);
 
 			Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(episodeName);
 			Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
-			return d3.round(nodes.cardTypes[0].count,0);			
+			return formatValue(nodes.cardTypes[0].count);			
 			});
         } else {
             if (ab && ab.type === 'theme') {
 	                Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(themeName);
 				Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
-			return d3.round(nodes.cardTypes[0].count,0);			
+			return formatValue(nodes.cardTypes[0].count);			
 			});
             } else {
                 if (ab && ab.type === 'perspective') {
 				
 				Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(perspectiveName);
 			Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
-			return d3.round(nodes.cardTypes[0].count,0);			
+			return formatValue(nodes.cardTypes[0].count);			
 			});
                 }
             }
@@ -736,7 +739,7 @@ console.log("mapBool",mapBool);
             return rectHeight / - 2 + o
         }) .attr('fill', '#fff') .text(function (Z) {
 
-            return Z.name+"__("+d3.round(Z.cardTypes[0].count)+")";
+            return Z.name+"__("+formatValue(Z.cardTypes[0].count)+")";
         }) .transition() .duration(duration) .ease(ease) .attr('x', function (Z) {
             return Z.x + t
         }) .attr('y', function (Z) {

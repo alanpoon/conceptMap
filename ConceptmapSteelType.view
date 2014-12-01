@@ -519,7 +519,9 @@
       "themeName":"Local",
       "perspectiveName":"Foreign",
       "episodeName":"SteelType",
-      "entityName":"Tonnage: "
+      "entityName":"Tonnage: ",
+      "prefixMagnitude":"1000",
+      "formatValue":"formatValue=function(value) {return ' '+d3.round(prefix.scale(value),2)+prefix.symbol;}"
     }
   },
   "includes":["/elx/lib/conceptmapOriginalJSmatch.js"],
@@ -681,7 +683,43 @@
       "value":"${typeinfo.entityName}",
       "readonly":false
     }]
-  }]
+  },{
+      "jsonClass":"Row",
+      "cols":[{
+        "jsonClass":"Label",
+        "id":"typeinfo-prefixMagnitude-label",
+        "type":"label",
+        "text":"Prefix Magnitude"
+      },{
+        "jsonClass":"Select",
+        "id":"typeinfo-prefixMagnitude",
+        "type":"select",
+        "value":"${typeinfo.prefixMagnitude}",
+        "options":[{
+          "jsonClass":"Option",
+          "text":"thousand",
+          "value":"1000"
+        },{
+          "jsonClass":"Option",
+          "text":"million",
+          "value":"1000000"
+        }]
+      }]
+    },{
+      "jsonClass":"Row",
+      "cols":[{
+        "jsonClass":"Label",
+        "id":"typeinfo-formatValue-label",
+        "type":"label",
+        "text":"Format Value"
+      },{
+        "jsonClass":"Field",
+        "id":"typeinfo-formatValue",
+        "type":"field",
+        "value":"${typeinfo.formatValue}",
+        "readonly":false
+      }]
+    }]
 }
 ========
 <<<<<<<=edit-js=
@@ -698,6 +736,8 @@ elx.bundle.type.ConceptmapSteelType = {
       $("#typeinfo-episodeName").val(view.typeinfo.episodeName);
       $("#typeinfo-perspectiveName").val(view.typeinfo.perspectiveName);
       $("#typeinfo-entityName").val(view.typeinfo.entityName);
+      $("#typeinfo-prefixMagnitude").val(view.typeinfo.prefixMagnitude);
+       $("#typeinfo-formatValue").val(view.typeinfo.formatValue);
 	},
 
 	validate : function(view) {
@@ -725,6 +765,10 @@ elx.bundle.type.ConceptmapSteelType = {
 		view.typeinfo.episodeName = dEpisodeName;
        var dEntityName = $("#typeinfo-entityName").val();
 		view.typeinfo.entityName = dEntityName;
+      var dPrefixMagnitude= $("#typeinfo-prefixMagnitude").val();
+      view.typeinfo.prefixMagnitude= dPrefixMagnitude;
+        var dFormatValue= $("#typeinfo-formatValue").val();
+      view.typeinfo.formatValue= dFormatValue;
 	}
 };
 ========
@@ -826,8 +870,7 @@ nested2.forEach(function(xnm, i) {
         name: xnm.key,
         episode: i + 1,
         cardTypes: [],
-
-        slug: "",
+  		slug: "",
         date: new Date(),
         links: []
     };
@@ -928,6 +971,9 @@ toPerspectiveArr.forEach(function(d, i) {
 // console.log("conceptmapDataprinted:",JSON.stringify(conceptmapData));
  var directoryType={"episode":view.typeinfo.data.transitStnCol,
   "perspective":view.typeinfo.data.finStnCol,"theme":view.typeinfo.data.finStnCol};
+  var prefix=d3.formatPrefix(view.typeinfo.prefixMagnitude);
+  var formatValue;
+  eval(view.typeinfo.formatValue);
   console.log("directoryType",JSON.stringify(directoryType));
 conceptMap("#${id}", conceptmapData, {
     themeColor: "white",
@@ -942,7 +988,9 @@ conceptMap("#${id}", conceptmapData, {
     perspectiveName: perspectiveName,
   entityName: entityName,
     zLimit: 50,
-  directoryType:directoryType
+  directoryType:directoryType,
+  formatPrefix:prefix,
+  formatValue:formatValue
 });
     
   	elx.host.setupAutoResize(div, function(w,h){
@@ -956,7 +1004,8 @@ conceptMap("#${id}", conceptmapData, {
   height: h, centerCircleRadius: 60, maxCount: maxCount, minCount: minCount, themeName: themeName,
     episodeName: episodeName,
     perspectiveName: perspectiveName,entityName: entityName,
-    zLimit: 50, directoryType:directoryType});	
+    zLimit: 50, directoryType:directoryType, formatPrefix:prefix,
+  formatValue:formatValue});	
     
   		}
     });
