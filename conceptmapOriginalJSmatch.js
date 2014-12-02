@@ -70,7 +70,7 @@ console.log("id",id);
     }) .y(function (X) {
         return X[1]
     }) .interpolate('bundle') .tension(0.1);
-    var d = d3.select(id) .append('svg') .attr('width', w) .attr('height', c) .append("g") .attr('transform', 'translate(' + w / 2 + ',' + c / 2 + ')');
+    var d = d3.select(id) .append('svg') .attr('width', w) .attr('height', c) .append("g") .attr('transform', 'translate(' + w / 2 + ',' + c / 2 + ')').attr("id","svg"+id);
     var I = d.append('rect') .attr('class', 'bg') .attr({
         x: w / - 2,
         y: c / - 2,
@@ -460,7 +460,8 @@ console.log("mapBool",mapBool);
 		
 	  count=count+1;
 	 	  switch (nodes.depth){
-		  case 0: depth="nodeDepthZero"; console.log("nodess.",nodes);
+		  case 0: if (nodes.type=='episode') depth="nodeDepthZero_episode";
+				if (nodes.type!='episode') depth ="nodeDepthZero_notEpisode"; console.log("nodess.",nodes);
 	
 		  if (id !=='#chart' && !id.contains('preview')) { 
 			if (nodes.type=='episode') {
@@ -498,7 +499,9 @@ console.log("mapBool",mapBool);
       var Y = X.enter().append("g").attr("id",function(nodes){
 	  count=count+1;
 	 	  switch (nodes.depth){
-		  case 0: depth="nodeDepthZero";  if (id !=='#chart' && !id.contains('preview')) { 	
+		  case 0: if (nodes.type=='episode') depth="nodeDepthZero_episode";
+				if (nodes.type!='episode') depth ="nodeDepthZero_notEpisode";
+				if (id !=='#chart' && !id.contains('preview')) { 	
 		  		if (nodes.type=='episode') {
 				  var selObj={'type':'and-value','list':[
 			{
@@ -543,7 +546,7 @@ console.log("mapBool",mapBool);
         Y.append('text') .attr('stroke', '#fff') .attr('stroke-width', 4) .attr('class', 'label-stroke');
         Y.append('text') .attr('font-size', 0) .attr('class', 'label').selectAll(".label");
 		//d3.selectAll(".label").call(wrap,10);
-        X.transition() .duration(duration) .ease(ease) .attr('transform', function (nodes) {
+        X.attr('transform','rotate(0)').transition() .duration(duration) .ease(ease) .attr('transform', function (nodes) {
             if (nodes === L.node) {
                 return null
             }
@@ -578,7 +581,7 @@ console.log("mapBool",mapBool);
             }
         }).style("fill",function (nodes) { if(nodes.isGroup) return "#00ced1";});
 		
-        X.selectAll('text') .transition() .duration(duration) .ease(ease) .attr('dy', '.3em') .attr('font-size', function (nodes) {
+        X.selectAll('text').attr('transform','rotate(0)').transition() .duration(duration) .ease(ease) .attr('dy', '.3em') .attr('font-size', function (nodes) {
             if (nodes.depth === 0) {
                 return 20
             } else return 15
@@ -666,7 +669,7 @@ console.log("mapBool",mapBool);
         
     function drawLinks() {
         var X = B.selectAll('path') .data(H, key);
-        X.enter() .append('path') .attr('d', function (nodes) {
+        X.enter() .append('path').attr('d', function (nodes) {
             var Y = nodes.source ? {
                 x: nodes.source.x,
                 y: nodes.source.y
@@ -693,15 +696,15 @@ console.log("mapBool",mapBool);
 			});
         } else {
             if (ab && ab.type === 'theme') {
-	                Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(themeName);
-				Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
+	                Y.append('text') .attr('fill', '#000') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(themeName);
+				Y.append('text') .attr('fill', '#000') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
 			return formatValue(nodes.cardTypes[0].count);			
 			});
             } else {
                 if (ab && ab.type === 'perspective') {
 				
-				Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(perspectiveName);
-			Y.append('text') .attr('fill', '#f7f6ee') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
+				Y.append('text') .attr('fill', '#000') .attr('text-anchor', 'middle') .attr('y', (o + t) * - 1).text(perspectiveName);
+			Y.append('text') .attr('fill', '#000') .attr('text-anchor', 'middle') .attr('y', (o + t) * + 1).text(function(nodes) {
 			return formatValue(nodes.cardTypes[0].count);			
 			});
                 }
@@ -759,7 +762,7 @@ console.log("mapBool",mapBool);
     }
     function drawConnector(Y) {
         var X = f.selectAll('path') .data(Y);
-        X.enter() .append('path') .attr('d', function (Z) {
+        X.enter() .append('path').attr('d', function (Z) {
             return v([
 			[Z.x1,Z.y1],
             [Z.x1,Z.y1],
@@ -828,7 +831,9 @@ console.log("mapBool",mapBool);
             }
             return null
         });
- 		E.selectAll("#nodeDepthZero text").attr("fill","#fff");
+ 		E.selectAll("#nodeDepthZero_episode text").attr("fill","#fff");
+		E.selectAll("#nodeDepthZero_notEpisode text").attr("fill","#000");
+		E.selectAll("#nodeDepthZero_notEpisode circle").attr("fill","#fff").attr("stroke","#000");
 		E.selectAll("#nodeDepthOne text").attr("fill","#000");
 		E.selectAll("#nodeDepthOneMain text").attr("fill","#000");
 		E.selectAll("#nodeDepthTwo text").attr("fill","#000");
