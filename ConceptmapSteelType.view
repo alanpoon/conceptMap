@@ -792,7 +792,7 @@ elx.bundle.type.ConceptmapSteelType = {
   ,"FIN_STN_TYPE":d[view.typeinfo.data.finStnTypeCol],"TICKET_TOTAL":d[view.typeinfo.data.ticketTotalCol]
   });
   })
-  // console.log("processedData",JSON.stringify(processedData));
+   console.log("processedData",JSON.stringify(processedData));
 var tmp = _.groupBy(processedData, function(d) {
 
     return d['FIN_STN'];
